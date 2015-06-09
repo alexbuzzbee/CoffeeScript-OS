@@ -8,7 +8,7 @@ build-dev: compile
 pack: CoffeeScript-OS.tar.gz
 
 CoffeeScript-OS.tar.gz: ${COMPILED}
-	tar -czf CoffeeScript-OS.tar.gz ${COMPILED}
+	tar -czf CoffeeScript-OS.tar.gz ${COMPILED} lib/ index.html
 
 compile: ${COMPILED}
 
