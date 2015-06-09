@@ -107,7 +107,7 @@ doSomethingElse()
 
 ### Commit messages
 
-Phrase commit messages like you're giving orders to the codebase, without periods, and with proper capitalization: `Add system/Whatever class`
+Phrase commit messages like you're giving orders to the codebase, without periods, and with proper capitalization, like `Add the system/Whatever class` or `Add a test for whatever in the system/Whatever constructor. Fixes #9.`.
 
 ### File naming
 
