@@ -118,11 +118,11 @@ doSomethingElse()
 
 ### Commit messages
 
-Phrase commit messages like you're giving orders to the codebase, without periods, and with proper capitalization, like `Add the system/Whatever class` or `Add a test for whatever in the system/Whatever constructor. Fixes #9.`.
+Phrase commit messages like you're giving orders to the codebase, without periods, and with proper capitalization, like `Add the system/Whatever class` or `Add a test for whatever in the system/Whatever constructor; fixes #9`.
 
 ### File naming
 
-Name files based on the class they contain, like do:
+Name files based on the class they contain, like so:
 
 ```coffeescript
 # In system/SomeExampleClass
