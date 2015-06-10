@@ -43,11 +43,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ┃ ┣━dijit/ # Dijit.
 ┃ ┗━local-storage/ # A library used to access Web Storage.
 ┣━apps/ # Contains applications.
-┣━system/ # Contains the system.
-┃ ┣━Kernel.coffee # The Kernel.
-┃ ┣━FileSystem.coffee # The file system manager.
-┃ ┣━Config.coffee # The configuration manager.
-┃ ┗━*.js # Compiled versions of the above.
+┗━system/ # Contains the system.
+  ┣━Kernel.coffee # The Kernel.
+  ┣━FileSystem.coffee # The file system manager.
+  ┣━Config.coffee # The configuration manager.
+  ┗━*.js # Compiled versions of the above.
 ```
 
 ## Contributing
