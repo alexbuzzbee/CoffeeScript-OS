@@ -25,10 +25,16 @@ define ["./FileSystem"], (FileSystem) -> # Provides a simplified configuration i
       @fs.close handle
       return value
 
+    list: -> @fs.getDir(@dir)
+
     set: (key, value) ->
-      handle = @fs.open @dir + "/" + key
-      @fs.write value
-      @fs.close handle
-      return value
+      if fs.exists
+        @fs.createFile @dir, key, value
+        return true
+      else
+        handle = @fs.open @dir + "/" + key
+        @fs.write value
+        @fs.close handle
+        return true
 
   return Config
