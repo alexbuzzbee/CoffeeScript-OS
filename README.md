@@ -49,6 +49,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ┃ ┗━*.js # Compiled versions of the above.
 ```
 
+## Contributing
+
+1. Come up with something useful and acceptable to do.
+2. Fork the repository.
+3. Make your changes, adhering to the style guide below when reasonable.
+4. Submit a pull request (make sure you explain your changes).
+5. Wait for the pull request to be reviewed.
+6. Make any necessary changes to your patch.
+7. Goto step 4 until patch is acceptable.
+8. Congratulations! Your patch will be merged once acceptable, so long as you've followed the procedure.
+
 ## Style guide
 
 ### Function, method, and variable naming
