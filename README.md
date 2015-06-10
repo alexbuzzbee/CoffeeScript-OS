@@ -46,6 +46,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ┣━system/ # Contains the system.
 ┃ ┣━Kernel.coffee # The Kernel.
 ┃ ┣━FileSystem.coffee # The file system manager.
+┃ ┣━Config.coffee # The configuration manager.
 ┃ ┗━*.js # Compiled versions of the above.
 ```
 
