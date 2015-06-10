@@ -76,6 +76,13 @@ define [
       contents.push {name: dir.name, meta: {type: "dir"}} for dir in files when dir.loc.match(@dirExp)?
       return contents
 
+    exists: (path) ->
+      files = @store.query {
+        loc: path
+      }
+      return true if files[0]?
+      return false
+
     open: (path) ->
       handle = makeUuid @node
       file = @store.query {
