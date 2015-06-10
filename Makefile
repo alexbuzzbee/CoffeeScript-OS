@@ -1,6 +1,8 @@
 SOURCES = $(wildcard system/*.coffee)
 COMPILED = ${SOURCES:.coffee=.js}
 
+build: build-production
+
 build-production: pack
 
 build-dev: compile
