@@ -24,7 +24,7 @@ To acquire the CoffeeScript OS source, launch the application named 'Get Source'
   <body class="claro">
     <div id="contentRect" data-dojo-type="dijit/layout/ContentPane">
     </div>
-    <script>
+    <script type="text/javascript">
       var dojoConfig = {
         async: true,
         baseUrl: "/csos/", // Change this to the location of your installation.
@@ -36,8 +36,8 @@ To acquire the CoffeeScript OS source, launch the application named 'Get Source'
         ]
       }
     </script>
-    <script src="lib/dojo/dojo.js"></script>
-    <script>
+    <script src="lib/dojo/dojo.js" type="text/javascript"></script>
+    <script type="text/javascript">
       require(["system/Kernel", "dojo/domReady!"], function(Kernel) {
         Kernel.ready();
       });
