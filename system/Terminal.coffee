@@ -24,8 +24,9 @@ define ["dijit/form/SimpleTextarea"], (SimpleTextarea) ->
         rows: height,
         style: "width: auto; overflow: hidden; color: white; background-color: black;"
       }, elementId
-      @ta.on "keypress", @keyDown
-      @keyBuffer = ""
+      @ta.on "keypress", @onKey
+
+    keyBuffer = ""
 
     print: (text) ->
       @ta.set "value", @ta.get("value") + text # Append the text to the terminal's contents.
@@ -34,19 +35,29 @@ define ["dijit/form/SimpleTextarea"], (SimpleTextarea) ->
       @ta.value = ""
 
     onKey: (e) ->
-      @keyBuffer += e.char
+      if e.char?
+        keyBuffer += e.char
+      else if typeof e.charOrCode == "string"
+        keyBuffer += e.charOrCode
+      else
+        throw "browser doesn't support characters in keypress event"
+
 
     read: -> # Pull all characters out of the key buffer.
       retval = @keyBuffer
-      @keyBuffer = ""
+      keyBuffer = ""
       return retval
 
-    readLine: -> # Pull characters up to, but not including, the next newline character out of the key buffer.
+    readLine: -> # Pull characters up to, but not including, the next newline character out of the key buffer. If there is no newline in the buffer, returns null.
       line = ""
       lineSize = 0
-      for char, index in @keyBuffer.split ""
-        break if char is "\n"
+      newlinePresent = false
+      for char, index in keyBuffer.split ""
+        if char is "\n"
+          line = true
+          break
         line += char
         lineSize++
-      @keyBuffer = @keyBuffer.substr(lineSize + 1)
+      return null if newlinePresent is false
+      keyBuffer = keyBuffer.substr(lineSize + 1)
       return line
