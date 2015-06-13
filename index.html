@@ -5,9 +5,21 @@
     <title>CoffeeScript OS - Loading...</title>
   </head>
   <body>
-    <script data-dojo-config="async: true" src="lib/dojo/dojo.js"></script>
     <script>
-      require(["system/kernel"], function(Kernel) {
+      var dojoConfig = {
+        async: true,
+        baseUrl: "/csos/",
+        tlmSiblingOfDojo: false,
+        packages: [
+          {name: "dojo", location: "lib/dojo"},
+          {name: "dojox", location: "lib/dojox"},
+          {name: "dijit", location: "lib/dijit"}
+        ]
+      }
+    </script>
+    <script src="lib/dojo/dojo.js"></script>
+    <script>
+      require(["system/Kernel"], function(Kernel) {
         Kernel.ready()
       });
     </script>

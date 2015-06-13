@@ -13,10 +13,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with CoffeeScript OS.  If not, see <http://www.gnu.org/licenses/>.
 
-define ["./FileSystem", "./Config"], (fs) ->
+define ["./FileSystem", "./Config"], (fs, Config) ->
   class Kernel
     constructor: () ->
       @cfg = new Config("system")
+
+    ready: -> null
 
 
   return new Kernel()
