@@ -83,6 +83,9 @@ define [
       return true if files[0]?
       return false
 
+    isDir: (path) ->
+      @exists path + ".dir"
+
     open: (path) ->
       handle = makeUuid @node
       file = @store.query {
