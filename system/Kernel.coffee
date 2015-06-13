@@ -13,10 +13,16 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with CoffeeScript OS.  If not, see <http://www.gnu.org/licenses/>.
 
-define ["./FileSystem", "./Config", "./Terminal", "dijit/registry", "dijit/layout/ContentPane"], (fs, Config, Terminal, dijitRegistry, ContentPane) ->
+define ["./FileSystem", "./Config", "./defaults", "./Terminal", "dijit/registry", "dijit/layout/ContentPane"], (fs, Config, defaults, Terminal, dijitRegistry, ContentPane) ->
   class Kernel
     constructor: () ->
       @cfg = new Config("system")
+
+    getKConf: (key, type) ->
+      value = @cfg.get key
+      return value if typeof value is type
+      return defaults[key] if typeof defaults[key] is type # Try fetching it from the defaults.
+      return null
 
     ready: ->
       @content = new ContentPane({}, "contentRect")
