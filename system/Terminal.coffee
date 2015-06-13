@@ -54,7 +54,7 @@ define ["dijit/form/SimpleTextarea"], (SimpleTextarea) ->
       newlinePresent = false
       for char, index in keyBuffer.split ""
         if char is "\n"
-          line = true
+          newlinePresent = true
           break
         line += char
         lineSize++
