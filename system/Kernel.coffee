@@ -13,12 +13,15 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with CoffeeScript OS.  If not, see <http://www.gnu.org/licenses/>.
 
-define ["./FileSystem", "./Config"], (fs, Config) ->
+define ["./FileSystem", "./Config", "./Terminal", "dijit/registry", "dijit/layout/ContentPane"], (fs, Config, Terminal, dijitRegistry, ContentPane) ->
   class Kernel
     constructor: () ->
       @cfg = new Config("system")
 
-    ready: -> null
-
+    ready: ->
+      @content = new ContentPane({}, "contentRect")
+      @content.set "content", "<textarea id='systemConsole'></textarea>"
+      @term = new Terminal "systemConsole"
+      @term.print("Kernel initializing...\n")
 
   return new Kernel()
