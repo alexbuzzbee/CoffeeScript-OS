@@ -7,6 +7,13 @@ The idea for CoffeeScript OS came from various places, notably [windows93.net](h
 ## Design
 CoffeeScript OS is organized into the 'system', 'applications', and 'libraries'. The system is the core functionality of CoffeeScript OS, and has control. Libraries are extra classes and modules which provide optional functionality. Applications are the main front-end component of CoffeeScript OS; they can open windows, display widgets using Dijit, communicate amongst themselves, manipulate the filesystem, and more.
 
+## Installation instructions
+
+1. Unpack the CoffeeScript OS archive to any directory on your web server.
+2. Open `index.html` in any text editor.
+3. Find the line which says `baseUrl: "/csos/",` and change it to say `baseUrl: "/url/to/CoffeeScript/OS/installation/directory",` (e.g, if you installed at the root of your web server, make it `baseUrl: "/",`).
+4. Visit the location of the new installation in your web browser.
+
 ## License
 
 CoffeeScript OS is licensed under the GNU Affero General Public License (GPL).
