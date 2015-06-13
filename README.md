@@ -5,7 +5,7 @@ An 'operating system' written in CoffeeScript using Dojo.
 The idea for CoffeeScript OS came from various places, notably [windows93.net](http://www.windows93.net) and [Lucid Desktop](http://www.lucid-desktop.org). It is a web-based 'operating system' which allows the user to use applications, manage documents, and more, all in a modular Dojo-based system written in CoffeeScript. Applications, libraries, and even components of the core system are just Dojo AMD modules, written in CoffeeScript and compiled into JavaScript (or written directly in JavaScript, if you're boring).
 
 ## Design
-CoffeeScript OS is organized into the 'system', 'applications', and 'libraries'. The system is the core functionality of CoffeeScript OS, and has control. Libraries are extra classes and modules which provide optional functionality. Applications are the main front-end component of CoffeeScript OS; they can open windows, display widgets using Dijit, communicate amongst themselves, manipulate the filesystem, and more.
+CoffeeScript OS is organized into the 'system', 'applications', and 'libraries'. The system is the core functionality of CoffeeScript OS, and has control. Libraries are extra classes and modules which provide optional functionality. Applications are the main front-end component of CoffeeScript OS; they can open windows, display widgets using Dijit or jQuery UI, communicate amongst themselves, manipulate the filesystem, and more.
 
 ## Installation instructions
 
