@@ -18,6 +18,7 @@ define ["./FileSystem"], (FileSystem) -> # Provides a simplified configuration i
     constructor: (owner) ->
       @dir = "/config/" + owner
       @fs = new FileSystem()
+      @fs.createDir "/config", owner if not @fs.isDir @dir
 
     get: (key) ->
       handle = @fs.open @dir + "/" + key
