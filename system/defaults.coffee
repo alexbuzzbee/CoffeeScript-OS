@@ -15,12 +15,12 @@
 
 # Default configuration for CoffeeScript OS System.
 
-define [], -> {
-  atBoot: [] `// Default system modules to load at boot (as opposed to on-demand).`
-  bootApps: { `// Default apps to start at boot.`
-    always: []
-    text: []
-    windowing: []
-  }
-  enableWindowSystem: true
-}
+define ->
+  defaults =
+    atBoot: `[]` # Default system modules to load at boot (as opposed to on-demand).
+    bootApps: # Default apps to start at boot.
+      always: `[]`
+      text: `[]`
+      windowing: `[]`
+    enableWindowSystem: true
+  return defaults

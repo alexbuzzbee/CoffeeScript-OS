@@ -86,7 +86,7 @@ define [
       @exists path + ".dir"
 
     open: (path) ->
-      handle = makeUuid @node
+      handle = @handles.length
       file = @store.query {
         loc: path
       }
