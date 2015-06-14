@@ -29,8 +29,8 @@ define [
 
     getSysConf: (key, type) ->
       value = @cfg.get key
-      return value if typeof value is type
-      return defaults[key] if typeof defaults[key] is type # Try fetching it from the defaults.
+      return value if value? and typeof value is type
+      return defaults[key] if defaults[key]? and typeof defaults[key] is type # Try fetching it from the defaults.
       return null
 
     ready: ->

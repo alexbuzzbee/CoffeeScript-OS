@@ -22,6 +22,7 @@ define ["./FileSystem"], (FileSystem) -> # Provides a simplified configuration i
 
     get: (key) ->
       handle = @fs.open @dir + "/" + key
+      return null if not handle?
       value = @fs.read handle
       @fs.close handle
       return value

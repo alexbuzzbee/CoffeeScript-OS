@@ -87,9 +87,10 @@ define [
 
     open: (path) ->
       handle = @handles.length
-      file = @store.query {
+      files = @store.query {
         loc: path
       }
+      file = files[0]
       if file?
         @handles[handle] = file
         return handle
