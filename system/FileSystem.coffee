@@ -14,9 +14,8 @@
 # along with CoffeeScript OS.  If not, see <http://www.gnu.org/licenses/>.
 
 define [
-  "../lib/local-storage/LocalStorage",
-  "../lib/dojox/uuid/generateTimeBasedUuid"
-], (LocalStorage, makeUuid) ->
+  "../lib/local-storage/LocalStorage"
+], (LocalStorage) ->
   class FileSystem # Implements a simple filesystem on top of LocalStorage.
     constructor: ->
       if not localStorage? # Make sure Web Storage is available.
@@ -98,10 +97,15 @@ define [
         return null
 
     flush: (handle) ->
-      @store.put @handles[handle]
+      return false if not @exists @handles[handle].loc # Don't throw when the file doesn't exist.
+      try
+        @store.put @handles[handle]
+      catch
+        return false
+      return true
 
     close: (handle) ->
-      flush handle
+      @flush handle
       delete @handles[handle]
 
     read: (handle) ->
