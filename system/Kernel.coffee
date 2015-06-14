@@ -18,10 +18,11 @@ define [
   "./Config"
   "./defaults"
   "./Terminal"
+  "./ApplicationManager"
   "dijit/registry"
   "dijit/layout/ContentPane"
   "require"
-], (fs, Config, defaults, Terminal, dijitRegistry, ContentPane, require) ->
+], (fs, Config, defaults, Terminal, ApplicationManager, dijitRegistry, ContentPane, require) ->
   class Kernel
     constructor: () ->
       @cfg = new Config("system")
@@ -33,15 +34,25 @@ define [
       return null
 
     ready: ->
+      # -- Initialize console --
       @content = new ContentPane({}, "contentRect")
       @content.set "content", "<textarea id='systemConsole'></textarea>"
-      @term = new Terminal "systemConsole"
-      @term.print("System initializing...\n")
-      @term.print("Loading boot modules...\n")
+      @console = new Terminal "systemConsole"
+
+      @console.print("System initializing...\n")
+
+      # -- Load atBoot modules --
+      @console.print("Loading boot modules...\n")
       mods = @getSysConf("atBoot", "object")
       for module in mods
-        term.print "system/#{module}\n"
+        @console.print "system/#{module}\n"
         require "system/#{module}", -> null
+
+      # -- Launch bootApps --
+      bootApps = @getSysConf "bootApps", "object"
+      ApplicationManager.launch app for app in bootApps.always
+      ApplicationManager.launch app for app in bootApps.text if not @getSysConf "enableWindowSystem", "bool"
+      ApplicationManager.launch app for app in bootApps.windowing if @getSysConf "enableWindowSystem", "bool"
       return null
 
   return new Kernel()
