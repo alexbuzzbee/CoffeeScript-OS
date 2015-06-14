@@ -36,6 +36,12 @@ define [
       @content = new ContentPane({}, "contentRect")
       @content.set "content", "<textarea id='systemConsole'></textarea>"
       @term = new Terminal "systemConsole"
-      @term.print("Kernel initializing...\n")
+      @term.print("System initializing...\n")
+      @term.print("Loading boot modules...\n")
+      mods = @getSysConf("atBoot", "object")
+      for module in mods
+        term.print "system/#{module}\n"
+        require "system/#{module}", -> null
+      return null
 
   return new Kernel()
