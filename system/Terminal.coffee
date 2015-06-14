@@ -61,3 +61,5 @@ define ["dijit/form/SimpleTextarea"], (SimpleTextarea) ->
       return null if newlinePresent is false
       keyBuffer = keyBuffer.substr(lineSize + 1)
       return line
+      
+  return Terminal
