@@ -4,7 +4,7 @@ languages:
   PHP: true
   Python: true
 exclude_paths:
-  - "lib/dojo"
-  - "lib/dojox"
-  - "lib/dijit"
-  - "lib/local-storage"
+  - "lib/dojo/*"
+  - "lib/dojox/*"
+  - "lib/dijit/*"
+  - "lib/local-storage/*"
