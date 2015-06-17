@@ -23,4 +23,5 @@ define ->
       text: `["apps/shell/main.js"]` # apps/shell is the command-line shell.
       windowing: `["apps/gshell/main.js"]` # apps/gshell is the graphical shell (AKA desktop envrionment).
     enableWindowSystem: false
+    systemVersion: 0.1
   return defaults
