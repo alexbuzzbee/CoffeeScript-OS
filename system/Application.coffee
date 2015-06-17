@@ -20,8 +20,12 @@ define ["require"], (require) ->
       throw "main module does not exist" if @mod is 3 # Dojo require returns 3 to indicate no such module.
       @obj = new @mod() # Create an instance of the application.
       @killHandlers = []
+      @console = null # The main text I/O console for this application.
       throw "#{main} is not an application main module" if not @mod.initApp?
-      @obj.initApp() # Initialize the application.
+      @obj.initApp(this) # Initialize the application.
+
+    init: (id) ->
+      @obj.initApp(this, id)
 
     kill: () ->
       @obj.terminate()

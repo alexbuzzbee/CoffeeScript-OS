@@ -23,8 +23,11 @@ define ["./Application"], (Application) ->
       app = new Application main
 
       @apps.push app
+      appId = @apps.length - 1 # Last index in @apps will be the id.
 
-      return @apps.length
+      @apps[appId].init(appId)
+
+      return appId
 
     kill: (id) ->
       return @apps[id].terminate() if @apps[id].terminate?
