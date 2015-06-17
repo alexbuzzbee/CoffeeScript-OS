@@ -22,7 +22,6 @@ define ["require"], (require) ->
       @killHandlers = []
       @console = null # The main text I/O console for this application.
       throw "#{main} is not an application main module" if not @mod.initApp?
-      @obj.initApp(this) # Initialize the application.
 
     init: (id) ->
       @obj.initApp(this, id)
