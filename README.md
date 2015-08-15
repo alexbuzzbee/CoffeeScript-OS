@@ -1,4 +1,7 @@
 # CoffeeScript OS
+
+***WE HAVE MOVED TO GITLAB <https://gitlab.com/alexbuzzbee/CoffeeScript-OS>***
+
 An 'operating system' written in CoffeeScript using Dojo.
 
 ## Concept
